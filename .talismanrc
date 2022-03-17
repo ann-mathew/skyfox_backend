@@ -5,3 +5,5 @@ fileignoreconfig:
   checksum: d27bec4ba2b457de4045a468a7594c9f8c209a799e684f9d2afb1072303666ee
 - filename: .env.sample
   checksum: be83a4eec2f857c143b1650f08e2d096c83e6b3ae5b69fe7dca841e20a3d8166
+- filename: seedShowData.sh
+  checksum: 6e41bce1a5eb8ee29add9fb8e008c01f38bbb7fd34f336ef703a71dfa0dad761

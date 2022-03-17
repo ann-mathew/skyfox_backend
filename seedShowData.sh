@@ -12,6 +12,7 @@ declare next_date
 DB_HOST='localhost'
 DB_DATABASE="${POSTGRES_DB}"
 DB_USERNAME="${POSTGRES_USER}"
+DB_PASSWORD="${POSTGRES_PASSWORD}"
 
 OS_TYPE=$(uname -s)
 
