@@ -25,12 +25,19 @@ public class User {
     @ApiModelProperty(name = "password", value = "Password of the user", required = true, example = "password", position = 2)
     private String password;
 
+    @JsonProperty
+    @NotBlank(message = "Name must be provided")
+    @Column(nullable = false)
+    @ApiModelProperty(name = "name", value = "Name of the user", required = true, example = "name", position = 3)
+    private String name;
+
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String name) {
         this.username = username;
         this.password = password;
+        this.name = name;
     }
 
     public Long getId() {
@@ -51,5 +58,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

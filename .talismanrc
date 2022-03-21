@@ -7,3 +7,9 @@ fileignoreconfig:
   checksum: be83a4eec2f857c143b1650f08e2d096c83e6b3ae5b69fe7dca841e20a3d8166
 - filename: seedShowData.sh
   checksum: 6e41bce1a5eb8ee29add9fb8e008c01f38bbb7fd34f336ef703a71dfa0dad761
+- filename: src/main/resources/db/migration/V2.1__AddColumnNameToUserTable.sql
+  checksum: ad16bd8d7e707c8c52a4774b55b2db13ee6366157da7cfd313c0bdd445e73f16
+- filename: src/main/resources/db/migration/V2.2__AlterColumnNameDatatypeInUserTable.sql
+  checksum: d8e286452bbb05c760f5fba95089dc9940ca8ea157131020a43097953b667a13
+- filename: build.gradle
+  checksum: b6be662c54163c036d204765b097fbf0c00580eb461c5b6fa82e8c6c7e9e50c4
