@@ -11,11 +11,12 @@ fileignoreconfig:
   checksum: ad16bd8d7e707c8c52a4774b55b2db13ee6366157da7cfd313c0bdd445e73f16
 - filename: src/main/resources/db/migration/V2.2__AlterColumnNameDatatypeInUserTable.sql
   checksum: d8e286452bbb05c760f5fba95089dc9940ca8ea157131020a43097953b667a13
-- filename: build.gradle
-  checksum: b6be662c54163c036d204765b097fbf0c00580eb461c5b6fa82e8c6c7e9e50c4
 - filename: src/main/resources/db/migration/V2.3__AddColumnsToUserTable.sql
   checksum: b524bcd538558487f0c5749e400bd2426deeca9a79cc3cbc0e7e409fb231ad31
 - filename: src/main/resources/db/migration/V2.4__AlterColumnAgeGroupDatatypeInUserTable.sql
   checksum: 7eb0f385c15c2367ee26c0938aba0f1714334f028fcc164b97edb480cafdbae7
 - filename: src/main/resources/db/migration/V2.5__AlterColumnAgeGroupDefaultValueInUserTable.sql
   checksum: a67f6fcc60413726f9946598b9f05cd783072c4a902c99074972c6a458027d96
+- filename: build.gradle
+  checksum: 8dd0ff221a60f5588fd78a8b863466875bd27a021f42792c3435d48d903e6695
+
