@@ -9,6 +9,8 @@ spring:
 logging:
   level:
     root: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
 application:
   uiHost: ${UI_HOST}
   movieServiceHost: ${MOVIE_SERVICE_HOST}

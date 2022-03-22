@@ -3,12 +3,21 @@ package com.booking.users;
 import com.booking.users.view.models.ChangePasswordRequest;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.booking.handlers.models.ErrorResponse;
+import com.booking.users.Exceptions.UserAlreadyExistException;
+import com.booking.users.view.models.SignUpRequest;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +25,6 @@ import java.util.Map;
 @Api(tags = "Users")
 @RestController
 public class UserController {
-
     private final UserPrincipalService userPrincipalService;
 
     @Autowired
@@ -38,7 +46,7 @@ public class UserController {
         User user = userPrincipalService.findUserByUsername(username);
         Map<String, Object> response = new HashMap<>();
 
-        if(!user.getPassword().equals(changePasswordRequest.getOldPassword())) {
+        if (!user.getPassword().equals(changePasswordRequest.getOldPassword())) {
             response.put("status", false);
             response.put("msg", "Incorrect Old Password");
             return response;
@@ -50,5 +58,18 @@ public class UserController {
         response.put("msg", "Password Updated Successfully");
 
         return response;
+    }
+
+    @PostMapping(path = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Create a booking")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Created a booking successfully"),
+            @ApiResponse(code = 404, message = "Record not found", response = ErrorResponse.class),
+            @ApiResponse(code = 400, message = "Server cannot process request due to client error", response = ErrorResponse.class),
+            @ApiResponse(code = 500, message = "Something failed in the server", response = ErrorResponse.class)
+    })
+    User signup(@Valid @RequestBody SignUpRequest signUpRequest) throws UserAlreadyExistException {
+        return userPrincipalService.create(signUpRequest);
     }
 }
