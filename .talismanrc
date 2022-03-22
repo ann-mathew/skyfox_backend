@@ -21,5 +21,8 @@ fileignoreconfig:
   checksum: 8dd0ff221a60f5588fd78a8b863466875bd27a021f42792c3435d48d903e6695
 - filename: src/main/java/com/booking/users/view/models/SignUpRequest.java
   checksum: a4959c1ca3ad78d5889809df66d245cfba63c590f3ce83b7c264c5b743b394a0
+- filename: src/main/java/com/booking/email/EmailService.java
+  checksum: b6dc826babc826983b595bc4eebc15d5ad7f280fc0e60466a4a25743f809446b
+
 
 

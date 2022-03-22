@@ -10,9 +10,15 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
+
     User save(User user);
 
 
     @Query(value = "SELECT COUNT(EMAIL) FROM USERTABLE WHERE EMAIL=?1", nativeQuery = true)
     Integer emailCount(String email);
+
+
+    @Query(value="SELECT email FROM usertable WHERE email=?1", nativeQuery = true)
+    String findByEmailID(String email);
+
 }
