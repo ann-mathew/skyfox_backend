@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
@@ -39,4 +41,13 @@ public class DefaultMovieGateway implements MovieGateway {
         final var jsonResponse = requireNonNull(response.body()).string();
         return objectMapper.readValue(jsonResponse, MovieServiceResponse.class).toMovie();
     }
+
+    @Override
+    public List<Movie> getAllMovies() throws IOException, FormatException {
+        final var request = requestBuilder.url(appConfig.getMovieServiceHost() + "movies/").build();
+        final var response = httpClient.newCall(request).execute();
+        final var jsonResponse = requireNonNull(response.body()).string();
+        return Collections.singletonList(objectMapper.readValue(jsonResponse, MovieServiceResponse.class).toMovie());
+    }
+
 }
