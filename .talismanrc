@@ -7,6 +7,7 @@ fileignoreconfig:
   checksum: be83a4eec2f857c143b1650f08e2d096c83e6b3ae5b69fe7dca841e20a3d8166
 - filename: seedShowData.sh
   checksum: 6e41bce1a5eb8ee29add9fb8e008c01f38bbb7fd34f336ef703a71dfa0dad761
+
 - filename: src/main/resources/db/migration/V2.1__AddColumnNameToUserTable.sql
   checksum: ad16bd8d7e707c8c52a4774b55b2db13ee6366157da7cfd313c0bdd445e73f16
 - filename: src/main/resources/db/migration/V2.2__AlterColumnNameDatatypeInUserTable.sql
@@ -23,6 +24,13 @@ fileignoreconfig:
   checksum: a4959c1ca3ad78d5889809df66d245cfba63c590f3ce83b7c264c5b743b394a0
 - filename: src/main/java/com/booking/email/EmailService.java
   checksum: b6dc826babc826983b595bc4eebc15d5ad7f280fc0e60466a4a25743f809446b
+
+
+
+fileignoreconfig:
+- filename: build.gradle
+  checksum: b41c1e709d1026b3ec59ff9758482ea04fa4180550f62005fec976490ef620bf
+version: ""
 
 
 
