@@ -30,6 +30,8 @@ fileignoreconfig:
 fileignoreconfig:
 - filename: build.gradle
   checksum: b41c1e709d1026b3ec59ff9758482ea04fa4180550f62005fec976490ef620bf
+- filename: src/main/resources/db/migration/V2.6__CreatePasswordHistoryTable.sql
+  checksum: e7c3cd82baed88869d2a1c511ee115327575b86afa85f0e808e63d83cfe85f45
 version: ""
 
 
