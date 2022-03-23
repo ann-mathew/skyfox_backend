@@ -56,4 +56,8 @@ public class Movie {
     public int hashCode() {
         return Objects.hash(id, name, duration, plot);
     }
+
+    public String getId() {
+        return this.id;
+    }
 }
