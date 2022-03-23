@@ -24,7 +24,7 @@ public class MovieServiceResponse {
     @JsonProperty("Poster")
     private String poster;
 
-    public MovieServiceResponse() {
+    public MovieServiceResponse(){
     }
 
     public MovieServiceResponse(String imdbId, String title, String runtime, String plot, String poster) {
@@ -34,7 +34,6 @@ public class MovieServiceResponse {
         this.plot = plot;
         this.poster = poster;
     }
-
     public Movie toMovie() throws FormatException {
         int minutes;
 

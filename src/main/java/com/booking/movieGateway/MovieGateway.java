@@ -2,6 +2,7 @@ package com.booking.movieGateway;
 
 import com.booking.movieGateway.exceptions.FormatException;
 import com.booking.movieGateway.models.Movie;
+import com.booking.movieGateway.models.MovieResponse;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -11,5 +12,6 @@ import java.util.List;
 public interface MovieGateway {
 
     Movie getMovieFromId(String id) throws IOException, FormatException;
-    List<Movie> getAllMovies() throws IOException, FormatException;
+
+    List<MovieResponse> getAllMovies() throws IOException, FormatException;
 }
