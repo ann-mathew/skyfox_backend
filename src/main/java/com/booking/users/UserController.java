@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.HashMap;
@@ -61,15 +62,22 @@ public class UserController {
     }
 
     @PostMapping(path = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Create a booking")
+    @ApiOperation(value = "Create a user")
     @ResponseStatus(code = HttpStatus.CREATED)
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Created a booking successfully"),
+            @ApiResponse(code = 201, message = "Created user successfully"),
             @ApiResponse(code = 404, message = "Record not found", response = ErrorResponse.class),
             @ApiResponse(code = 400, message = "Server cannot process request due to client error", response = ErrorResponse.class),
-            @ApiResponse(code = 500, message = "Something failed in the server", response = ErrorResponse.class)
+            @ApiResponse(code = 500, message = "Something failed in the server", response = ErrorResponse.class),
+            @ApiResponse(code = 600, message = "User already exists", response = UserAlreadyExistException.class)
     })
-    User signup(@Valid @RequestBody SignUpRequest signUpRequest) throws UserAlreadyExistException {
-        return userPrincipalService.create(signUpRequest);
+    String signup(@Valid @RequestBody SignUpRequest signUpRequest, HttpServletResponse response) {
+        try{
+            userPrincipalService.create(signUpRequest);
+            return "User Saved Successfully";
+        } catch (UserAlreadyExistException userAlreadyExistException) {
+            response.setStatus(600);
+            return userAlreadyExistException.message();
+        }
     }
 }

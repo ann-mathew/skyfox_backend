@@ -33,10 +33,10 @@ public class UserPrincipalService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public User create(SignUpRequest signUpRequest) throws UserAlreadyExistException {
+    public void create(SignUpRequest signUpRequest) throws UserAlreadyExistException {
         Integer emailCount = userRepository.emailCount(signUpRequest.getEmail());
         if (emailCount >= 1) throw new UserAlreadyExistException("User Already Exists");
-        return userRepository.save(new User("NA", signUpRequest.getPassword(), signUpRequest.getName(),
+        userRepository.save(new User("NA", signUpRequest.getPassword(), signUpRequest.getName(),
                 signUpRequest.getEmail(), signUpRequest.getPhone(), signUpRequest.getAgeGroup(), "Customer"));
     }
 }
