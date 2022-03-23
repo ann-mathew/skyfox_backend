@@ -3,7 +3,9 @@ package com.booking.movieGateway;
 import com.booking.config.AppConfig;
 import com.booking.movieGateway.exceptions.FormatException;
 import com.booking.movieGateway.models.Movie;
+import com.booking.movieGateway.models.MovieResponse;
 import com.booking.movieGateway.models.MovieServiceResponse;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -12,7 +14,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
@@ -43,11 +44,11 @@ public class DefaultMovieGateway implements MovieGateway {
     }
 
     @Override
-    public List<Movie> getAllMovies() throws IOException, FormatException {
-        final var request = requestBuilder.url(appConfig.getMovieServiceHost() + "movies/").build();
+    public List<MovieResponse> getAllMovies() throws IOException, FormatException {
+        final var request = requestBuilder.url(appConfig.getMovieServiceHost() + "movies").build();
         final var response = httpClient.newCall(request).execute();
         final var jsonResponse = requireNonNull(response.body()).string();
-        return Collections.singletonList(objectMapper.readValue(jsonResponse, MovieServiceResponse.class).toMovie());
+        return objectMapper.readValue(jsonResponse, new TypeReference<List<MovieResponse>>() {
+        });
     }
-
 }
