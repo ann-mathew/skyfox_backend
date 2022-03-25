@@ -38,6 +38,8 @@ fileignoreconfig:
   checksum: 2c57cb8d83440a200cd483e4db5a7314f565e6b880415c0edee662230c75f7f0
 - filename: src/main/java/com/booking/passwordHistory/PasswordHistoryService.java
   checksum: 4e34d753bc3ec7061b299eacde0689dee234d4b0a1d1f7a30e2c2cbaf2b81294
+- filename: src/main/java/com/booking/users/UserPrincipalService.java
+  checksum: 1bc6fac70d0956cfa2cb7fcb90c70974e58aeeb4abd010a4d5ff56076b9fae09
 version: ""
 
 
