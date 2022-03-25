@@ -53,6 +53,12 @@ public class UserController {
             return response;
         }
 
+        if (userPrincipalService.checkWithPasswordHistory(user.getUsername(), changePasswordRequest.getNewPassword())) {
+            response.put("status", false);
+            response.put("msg", "New password should not match with last 3 passwords");
+            return response;
+        }
+
         userPrincipalService.updateUserPassword(changePasswordRequest.getNewPassword(), user);
 
         response.put("status", true);
