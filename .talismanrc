@@ -32,6 +32,8 @@ fileignoreconfig:
   checksum: b41c1e709d1026b3ec59ff9758482ea04fa4180550f62005fec976490ef620bf
 - filename: src/main/resources/db/migration/V2.6__CreatePasswordHistoryTable.sql
   checksum: e7c3cd82baed88869d2a1c511ee115327575b86afa85f0e808e63d83cfe85f45
+- filename: src/main/java/com/booking/passwordHistory/repository/PasswordHistory.java
+  checksum: 9f265c95f4a33f3d0d8a3f9535c5f351e45527f651a7683ccb7ca73bea08f467
 version: ""
 
 
